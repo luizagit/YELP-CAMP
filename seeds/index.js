@@ -3,11 +3,13 @@ const cities = require('./cities');
 const { places, descriptors } = require('./seedHelpers');
 const Campground = require('../models/campground');
 
-mongoose.connect('mongodb://localhost:27017/yelp-camp', {
-    useNewUrlParser: true,
-});
 
 const db = mongoose.connection;
+mongoose.connect('mongodb://127.0.0.1:27017/Yelp-Camp', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
+
 
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
